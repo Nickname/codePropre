@@ -12,25 +12,36 @@ public class CompteBancaire {
 	/** solde : solde du compte */
 	protected double solde;
 	
+	/** listCompte : List<CompteBancaire> */
 	private List<CompteBancaire> listCompte = new ArrayList<>();
 	
+	/**
+	 * @param solde
+	 */
 	public CompteBancaire(double solde) {
 		this.solde = solde;
 	}
 	
+	/**
+	 * @param type
+	 * @param solde
+	 * @return
+	 */
 	public boolean ouvrirUnCompte(TypeCompte type, double solde) {
 		if (type.equals(TypeCompte.CC)) {
 			listCompte.add(new CompteCourant(solde, -100.00));
+			this.solde -= solde;
 			return true;
 		} else if (type.equals(TypeCompte.LA)) {
 			listCompte.add(new LivretA(solde, 5));
+			this.solde -= solde;
 			return true;
 		}
 		return false;
 	}
 	
 	/** Getter for type
-	 * @return the type
+	 * @return le type de compte
 	 */
 	public String getType() {
 		return listCompte.stream()
@@ -38,10 +49,27 @@ public class CompteBancaire {
 						.collect(Collectors.joining(", "));
 	}
 	
+	/**
+	 * @return
+	 */
 	public List<CompteBancaire> getComptes() {
 		return this.listCompte;
 	}
 	
+	/**
+	 * @return
+	 */
+	public double getSolde() {
+		return solde;
+	}
+
+	/**
+	 * @param solde
+	 */
+	public void setSolde(double solde) {
+		this.solde = solde;
+	}
+
 	public class CompteCourant extends CompteBancaire {	
 		
 		/** decouvert : un découvert est autorisé seulement pour les comptes courants */
@@ -128,6 +156,9 @@ public class CompteBancaire {
 			}
 		}
 		
+		/** Calcule la rémunération annuelle puis l'applique au solde
+		 * 
+		 */
 		public void appliquerRemuAnnuelle(){
 			this.solde = solde + solde*tauxRemuneration/100;
 		}
