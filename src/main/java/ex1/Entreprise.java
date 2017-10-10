@@ -2,17 +2,65 @@ package ex1;
 
 import java.util.Date;
 
-public class entreprise {
+/**
+ * @author ETY15
+ *
+ */
+public class Entreprise {
 
-	public int Siret;
-	public String Nom;
-	public String adresse;
-	public Date date_Creation;
+	/** siret : int */
+	private int siret;
+	/** nom : String */
+	private String nom;
+	/** adresse : String */
+	private String adresse;
+	/** dateCreation : Date */
+	private Date dateCreation;
 	
-	public static final int capitalMax = 3000000;
+	/** CAPITAL_MAX : int */
+	private static final int CAPITAL_MAX = 3000000;
 	
-	public void Afficher_statut(){
-		
+	public int getSiret() {
+		return siret;
+	}
+
+	public void setSiret(int siret) {
+		this.siret = siret;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+	public Date getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
+	}
+
+	public static int getCapitalMax() {
+		return CAPITAL_MAX;
+	}
+	
+	/** Affiche le statut de l'entreprise
+	 *  
+	 */
+	public void afficherStatut(){
+		// TODO non implémenté
 	}
 	
 }

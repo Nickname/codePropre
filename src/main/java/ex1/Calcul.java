@@ -1,12 +1,22 @@
 package ex1;
 
-public class calcul {
+public class Calcul {
 
-	public int get1(int a, int b){
+	/** Effectue une opération d'addition
+	 * @param a paramètre a
+	 * @param b paramètre b
+	 * @return int
+	 */
+	public int additionner(int a, int b){
 		return a+b;
 	}
 	
-	public int get2(int a, int b){
+	/** Effectue une opération de soustraction
+	 * @param a paramètre a
+	 * @param b paramètre b
+	 * @return int
+	 */
+	public int soustraire(int a, int b){
 		return a-b;
 	}
 }
